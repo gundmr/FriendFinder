@@ -15,6 +15,7 @@ module.exports = function(app) {
   // In each of the below cases the user is shown an HTML page of content
   // ---------------------------------------------------------------------------
 
+  
   app.get("/tables", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/tables.html"));
   });
@@ -24,6 +25,7 @@ module.exports = function(app) {
   });
 
   // If no matching route is found default to home
+  //*********** do not need? */
   app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/home.html"));
   });
