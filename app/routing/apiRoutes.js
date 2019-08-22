@@ -5,7 +5,7 @@
 // ===============================================================================
 
 var tableData = require("../data/tableData"); //******* */change to friends (collecting survey data compare to other results)
-var waitListData = require("../data/waitinglistData"); //*********** */remove waitlist
+
 
 
 // ===============================================================================
@@ -23,9 +23,6 @@ module.exports = function(app) {
     res.json(tableData);
   });
 
-  app.get("/api/waitlist", function(req, res) {
-    res.json(waitListData);
-  });
 
   // API POST Requests
   // Below code handles when a user submits a form and thus submits data to the server.
@@ -39,13 +36,17 @@ module.exports = function(app) {
     // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
     // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body parsing middleware
+
+
+    //here we wil add matching?
     if (tableData.length < 5) {
       tableData.push(req.body);
       res.json(true);
     }
     else {
-      waitListData.push(req.body);
-      res.json(false);
+      console.log('use to be waitlit')
+      // waitListData.push(req.body);
+      // res.json(false);
     }
   });
 
@@ -56,7 +57,6 @@ module.exports = function(app) {
   app.post("/api/clear", function(req, res) {
     // Empty out the arrays of data
     tableData.length = 0;
-    waitListData.length = 0;
 
     res.json({ ok: true });
   });

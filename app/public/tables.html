@@ -45,14 +45,14 @@
 
                 <!-- Waiting List Card -->
                 <!-- REMOVE -->
-                <div class="card mt-4">
+                <!-- <div class="card mt-4">
                     <div class="card-header">
                         <h4>Waiting List</h4>
                     </div>
                     <div class="card-body">
                         <ul id="waitList" class="list-group"></ul>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -103,8 +103,8 @@
                         $("<hr>"),
                         $("<h2>").text("ID: " + tableData[i].customerID),
                         $("<h2>").text("Name: " + tableData[i].customerName),
-                        $("<h2>").text("Email: " + tableData[i].customerEmail),
-                        $("<h2>").text("Phone: " + tableData[i].phoneNumber)
+                        $("<h2>").text("Photo: " + tableData[i].customerPhoto),
+                        $("<h2>").text("Score: " + tableData[i].phoneNumber)
                     );
 
                     tableList.append(listItem);
@@ -112,38 +112,39 @@
             });
     }
 
-    function runWaitListQuery() {
+//************ REMOVE ***************************
+    // function runWaitListQuery() {
 
-        // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
-        $.ajax({ url: "/api/waitlist", method: "GET" })
-            .then(function (waitData) {
+    //     // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+    //     $.ajax({ url: "/api/waitlist", method: "GET" })
+    //         .then(function (waitData) {
 
-                // Here we then log the waitlistData to console, where it will show up as an object.
-                console.log(waitData);
-                console.log("------------------------------------");
+    //             // Here we then log the waitlistData to console, where it will show up as an object.
+    //             console.log(waitData);
+    //             console.log("------------------------------------");
 
-                // Loop through and display each of the customers
-                for (var i = 0; i < waitData.length; i++) {
+    //             // Loop through and display each of the customers
+    //             for (var i = 0; i < waitData.length; i++) {
 
-                    // Get a reference to the waitList element and populate it with tables
-                    var waitList = $("#waitList");
+    //                 // Get a reference to the waitList element and populate it with tables
+    //                 var waitList = $("#waitList");
 
-                    // Then display the fields in the HTML (Section Name, Date, URL)
-                    var listItem = $("<li class='list-group-item mt-4'>");
+    //                 // Then display the fields in the HTML (Section Name, Date, URL)
+    //                 var listItem = $("<li class='list-group-item mt-4'>");
 
-                    listItem.append(
-                        $("<h2>").text("Table #" + (i + 1)),
-                        $("<hr>"),
-                        $("<h2>").text("ID: " + waitData[i].customerID),
-                        $("<h2>").text("Name: " + waitData[i].customerName),
-                        $("<h2>").text("Email: " + waitData[i].customerEmail),
-                        $("<h2>").text("Phone: " + waitData[i].phoneNumber)
-                    );
+    //                 listItem.append(
+    //                     $("<h2>").text("Table #" + (i + 1)),
+    //                     $("<hr>"),
+    //                     $("<h2>").text("ID: " + waitData[i].customerID),
+    //                     $("<h2>").text("Name: " + waitData[i].customerName),
+    //                     $("<h2>").text("Photo: " + waitData[i].customerEmail),
+    //                     $("<h2>").text("Scores: " + waitData[i].phoneNumber)
+    //                 );
 
-                    waitList.append(listItem);
-                }
-            });
-    }
+    //                 waitList.append(listItem);
+    //             }
+    //         });
+    // }
 
     // This function resets all of the data in our tables. This is intended to let you restart a demo.
     function clearTable() {
@@ -151,7 +152,7 @@
 
         // Clear the tables on the server and then empty the elements on the client
         $.ajax({ url: "/api/clear", method: "POST" }).then(function () {
-            $("#waitList").empty();
+            // $("#waitList").empty();
             $("#tableList").empty();
         });
     }
@@ -162,7 +163,7 @@
     // Run Queries!
     // ==========================================
     runTableQuery();
-    runWaitListQuery();
+    //runWaitListQuery();
 
 
 </script>
