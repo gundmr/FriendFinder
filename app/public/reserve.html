@@ -202,25 +202,15 @@
 
         $.post("/api/tables", newUser,
             function (data) {
-
-                // If a table is available... tell user they are booked.
-                // ********** create check or function to compare characters for closest match
-                // ******** add ajax code from tables
                 if (data) {
                     // run calculation on matches
 
                     // add modal? 
                     runTableQuery();
-                    alert("Yay! , match found");
+                    alert("Yay!, match found");
 
                     
                 }
-
-                // If a table is available... tell user they on the waiting list.
-                else {
-                    alert("Still looking for your perfect match!");
-                }
-
                 // Clear the form when submitting
                 $("#user-name").val("");
                 $("#reserve-phone").val("");
@@ -228,9 +218,7 @@
                 $("#question-2").val("");
                 $("#question-3").val("");
                 $("#question-4").val("");
-
             });
-
     });
 
 

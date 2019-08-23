@@ -38,11 +38,6 @@ module.exports = function(app) {
     // req.body is available since we're using the body parsing middleware
 
 
-    //here we wil add matching?
-    if (tableData.length < 5) {
-      tableData.push(req.body);
-      res.json(true);
-    }
   });
 
   // ---------------------------------------------------------------------------
