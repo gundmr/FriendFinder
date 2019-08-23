@@ -9,13 +9,10 @@ var tableArray = [
   {
     Name: "Ahmed",
     Photo: "ahmed@example.com",
-    Scores: [
-      "1",
-      "1",
-      "1",
-      "1",
-      "1"
-    ] 
+    Question1: 1,
+    Question2: 1,
+    Question3: 1,
+    Question4: 1
   }
 ];
 

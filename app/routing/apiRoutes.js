@@ -43,11 +43,6 @@ module.exports = function(app) {
       tableData.push(req.body);
       res.json(true);
     }
-    else {
-      console.log('use to be waitlit')
-      // waitListData.push(req.body);
-      // res.json(false);
-    }
   });
 
   // ---------------------------------------------------------------------------
