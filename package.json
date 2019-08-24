@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/gundmr/FriendFinder/issues"
   },
-  "homepage": "https://github.com/gundmr/FriendFinder#readme"
+  "homepage": "https://github.com/gundmr/FriendFinder#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
