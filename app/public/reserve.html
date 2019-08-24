@@ -109,7 +109,7 @@
         <footer class="footer">
             <div class="container">
                 <p>
-                    <a href="/api/tables">API Table Link</a> | <a href="/api/GitHub"> GitHub Repo</a>
+                    <!-- <a href="/api/tables">API Table Link</a> | <a href="/api/GitHub"> GitHub Repo</a> -->
             </div>
         </footer>
 
@@ -164,7 +164,6 @@
 
         // Clear the tables on the server and then empty the elements on the client
         $.ajax({ url: "/api/clear", method: "POST" }).then(function () {
-            // $("#waitList").empty();
             $("#tableList").empty();
         });
     }
@@ -186,7 +185,7 @@
             //**** changed newReservation to newUser
         var newUser = {
             Name: $("#user-name").val().trim(),
-            Photo: $("#reserve-phone").val().trim(),
+            Photo: $("#user-photo").val().trim(),
             Question1: $("#question-1").val().trim(),
             Question2: $("#question-2").val().trim(),
             Question3: $("#question-3").val().trim(),
@@ -213,7 +212,7 @@
                 }
                 // Clear the form when submitting
                 $("#user-name").val("");
-                $("#reserve-phone").val("");
+                $("#user-photo").val("");
                 $("#question-1").val("");
                 $("#question-2").val("");
                 $("#question-3").val("");
