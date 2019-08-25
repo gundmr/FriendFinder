@@ -15,8 +15,6 @@ var tableData = require("../data/tableData");
 module.exports = function(app) {
   // API GET Requests
   // Below code handles when users "visit" a page.
-  // In each of the below cases when a user visits a link
-  // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
   // ---------------------------------------------------------------------------
 
   app.get("/api/tables", function(req, res) {
@@ -26,16 +24,44 @@ module.exports = function(app) {
 
   // API POST Requests
   // Below code handles when a user submits a form and thus submits data to the server.
-  // In each of the below cases, when a user submits form data (a JSON object)
-  // ...the JSON is pushed to the appropriate JavaScript array
-  // (ex. User fills out a reservation request... this data is then sent to the server...
-  // Then the server saves the data to the tableData array)
   // ---------------------------------------------------------------------------
 
   app.post("/api/tables", function(req, res) {
     // Note the code here. Our "server" will respond to requests and let users know match
-    tableData.push(req.body);
-    res.json(true);
+    var user = req.body;
+
+    //parseInt for score
+    for(var i = 0; i < user.score.length; i++){
+      user.score[i] = parseInt(user.score[i]);
+    }
+
+    //default friend match is the first friend but will be whoever has lowest difference in score
+    var bestFriendIndex = 0;
+    var minimumDifference = 40;
+
+    //in this for-loop, start off with 0 difference and compare the user and the '-th friend score one at a time
+    //whatever the difference is, add to total difference
+    for(var i = 0; i < tableData.length; i++){
+      var totalDifference = 0;
+      for(var j = 0; j < tableData[i].score.length; j++) {
+        var difference = Math.abs(user.score[j] - tableData[i].score[j]);
+        totalDifference += difference;
+      }
+
+      //if there is a new minimum, change the index and set the new minimum
+      if(totalDifference < minimumDifference) {
+        bestFriendIndex = i;
+        minimumDifference = totalDifference;
+      }
+    }
+
+    //after finding match, add user to friend array
+    //tableData.push(req.body);
+    tableData.push(user);
+
+    // send best match to browser
+    //res.json(true);
+    res.json(tableData[bestFriendIndex]);
   });
 
   // ---------------------------------------------------------------------------

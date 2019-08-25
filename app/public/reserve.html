@@ -140,17 +140,21 @@
 
             // AJAX post the data to API
             $.post("/api/tables", newUser, function(data) {
-                var hardcodeNames = ["Bill Murray", "bacon", "Nic Cage", "Mr. Segal"];
-                var image = "http://via.placeholder.com/640x360";
-                var matchName = hardcodeNames[Math.floor(Math.random()*hardcodeNames.length)];
-                console.log("random test: ", matchName);
-                console.log('check image: ', image);
-                console.log("table: ", data);
+                //var hardcodeNames = ["Bill Murray", "bacon", "Nic Cage", "Mr. Segal"];
+                //var image = "http://via.placeholder.com/640x360";
+                //var matchName = hardcodeNames[Math.floor(Math.random()*hardcodeNames.length)];
+                // console.log("random test: ", matchName);
+                // console.log('check image: ', image);
+                // console.log("table: ", data);
                 
 
                 // grab results from AJAX post
-                $("#match-name").text(matchName);
-                $("#match-img").attr("src",image);
+                // $("#match-name").text(matchName);
+                // $("#match-img").attr("src",image);
+
+                $("#match-name").text(data.name);
+                $("#match-img").attr("src",data.photo);
+
 
                 //show results in the modal
                 $("#results-modal").modal("toggle");
