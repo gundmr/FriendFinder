@@ -33,16 +33,13 @@ module.exports = function(app) {
   // ---------------------------------------------------------------------------
 
   app.post("/api/tables", function(req, res) {
-    // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
-    // It will do this by sending out the value "true" have a table
-    // req.body is available since we're using the body parsing middleware
-
-
+    // Note the code here. Our "server" will respond to requests and let users know match
+    tableData.push(req.body);
+    res.json(true);
   });
 
   // ---------------------------------------------------------------------------
-  // I added this below code so you could clear out the table while working with the functionality.
-  // Don"t worry about it!
+  // code should clear out the table while working with the functionality.
 
   app.post("/api/clear", function(req, res) {
     // Empty out the arrays of data
