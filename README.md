@@ -1,6 +1,6 @@
 # FriendFinder
 ## Purpose of Application:
-FriendFinder" application -- basically a dating app. This full-stack site takes in results from your users' surveys, then compare their answers other users. The app then shows the user the name and picture of the best overall friend match (within available data set).
+FriendFinder application simulates a basic application to connect with someone of similar interest or general dating apps. This full-stack site takes in results from your users' surveys, then compare their answers other users. The app then shows the user the name and picture of the best overall friend match (within available data set).
 
 ## Requirements
 * Modularity in the form of separate files for server logic, storing of friends, views, and routing
