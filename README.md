@@ -10,7 +10,7 @@ FriendFinder application simulates a basic application to connect with someone o
 * Appropriate GET and POST routes for serving HTML pages and API calls
 * Separate file for storing friends (friends.js)
 * Calculate best match for user once survey is completed and return that match to the user
-* Deployment to Heroku
+* Deployment to Heroku: https://pacific-reaches-13878.herokuapp.com/
 
 ## Technologies Used
 * JavaScript
